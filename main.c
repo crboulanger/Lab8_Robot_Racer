@@ -10,8 +10,7 @@
 #include <msp430.h> 
 #include "robot.h"
 #include "sensor.h"
-#include "sensor.c"
-#include "robot.c"
+
 
 unsigned int leftSensorVoltage, rightSensorVoltage;
 /*
@@ -19,6 +18,8 @@ unsigned int leftSensorVoltage, rightSensorVoltage;
  */
 int main(void) {
     WDTCTL = WDTPW | WDTHOLD;        // Stop watchdog timer
+
+   initializeMotor();
 
    initializeADC10();
    P1DIR |= BIT0;
